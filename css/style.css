@@ -4,14 +4,16 @@ Client: Your Client
 Author: Your Name
 Developer @GA in NYC
 */
-
-/*NOTES - this seems straightforward in terms of layout.
-I decided to just duplicate the styles in a media block 
-and then comment out the relevant (irrelevant) small screen
-stuff in the rest of the styles. 
-First thing though - sort out the header/burger issue and
-use relative things for the sizes of fonts and padding. */
-
+/*
+I realise I have left a large amount of superficial code - I
+had difficulty getting my head around approaching it min-width
+rather than max-width and then didn't take time to clean things up.
+I also didn't get around to converting the margin and padding to ems
+and the rem conversion for fonts I did was just quick and dirty so maybe not 
+'appropriate' in terms of technical requirements.
+I read about using percentages for
+these kind of things and got distracted/confused then 
+ran out of time. oopps. */
 
 /******************************************
 /* SETUP
@@ -42,7 +44,7 @@ use relative things for the sizes of fonts and padding. */
 /*******************************************/
 
 body {
-  font-size: 26px;
+  font-size: 1.5rem;
   line-height: 1.4;
   color: #606161;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -60,7 +62,7 @@ a {
 
 /* Center the container */
 .container {
-  /*width: 1024px;*/
+  width: 95%; /*changed from px to %*/
   margin: 0 auto;
 } 
 
@@ -71,7 +73,7 @@ a {
 
 header nav {
   float: right;
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 15px;
   display: none; 
 }
@@ -81,12 +83,14 @@ header .logo {
 }
 
 .active {
-  display: block; /*additional class J*/
+  display: block; /*additional class to use in js*/
+  /*float: none;*/
+
 }
 
 .logo {
   color: #fff;
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 800;
 }
 
@@ -109,7 +113,7 @@ header .logo {
 .cta-blue {
   background: #033048;
   color: #fff;
-  font-size: 24px;
+  font-size: 1rem;
 }
 
 .sign-up {
@@ -136,7 +140,7 @@ footer ul li {
 }
 
 footer p {
-  font-size: 18px;
+  font-size: 0.8rem;
   color: #fff;
   font-weight: 600;
 }
@@ -152,15 +156,15 @@ img {
 
 .main-header {
   background: #033048;
-  padding: 25px 0;
+  padding: 1.5em 0;
   overflow: hidden;
   margin-bottom: 80px;
 }
 
 .main-header nav ul li {
-  display: inline-block;
-  margin: 0 0 0 40px;
-  font-size: 24px;
+  display: inline;
+  margin: 0.4em;
+  font-size: 1.2rem;
 }
 
 .main-header nav ul li a {
@@ -185,7 +189,7 @@ img {
 
 .post h2 {
   font-weight: 600;
-  font-size: 40px;
+  font-size: 1.9rem;
   line-height: 1.3;
   margin-bottom: 30px;
 }
@@ -199,7 +203,7 @@ img {
 }
 
 .post p {
-  font-size: 24px;
+  font-size: 1.2rem;
   line-height: 1.333;
   color: #606161;
 }
@@ -225,7 +229,7 @@ img {
 }
 
 .sidebar h3 {
-  font-size: 32px;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 15px;
   color: #043049;
@@ -237,11 +241,11 @@ img {
 
 .sidebar ul li a {
   color: #043049;
-  font-size: 24px;
+  font-size: 1rem;
 }
 
 .sidebar p {
-  font-size: 22px;
+  font-size: 1rem;
   line-height: 1.1;
   margin-bottom: 40px;
 }
@@ -266,7 +270,7 @@ img {
 }
 
 .intro h2 {
-  font-size: 48px;
+  font-size: 2rem;
   text-align: center;
   color: #fff;
   margin: 120px 0 90px;
@@ -279,7 +283,7 @@ img {
 
 h3 {
   color: #033048;
-  font-size: 40px;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 40px;
 }
@@ -301,7 +305,7 @@ h3 {
 }
 
 blockquote {
-  font-size: 36px;
+  font-size: 1.7rem;
   font-weight: 300;
   font-style: italic;
   text-align: center;
@@ -315,10 +319,19 @@ blockquote span {
   font-style: normal;
 }
 
+.fa-bars {
+  color: white;
+  float: right;
+}
+
 /*/////media queries///*/
 
 
 @media (min-width: 768px) {
+
+  body {
+  font-size: 1.5rem;
+}
 
 /******************************************
 /* LAYOUT
@@ -326,13 +339,13 @@ blockquote span {
 
 /* Center the container */
 .container {
-  width: 1024px;
+  width: 95%;
   margin: 0 auto;
 } 
   
 header nav {
   float: right;
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 15px;
 /*  display: none;*/
 }
@@ -350,10 +363,10 @@ img {
 /* BLOG PAGE
 /*******************************************/
 
-.main-header nav ul li { how to snap into a burger?
+.main-header nav ul li {
   display: inline-block; 
   margin: 0 0 0 40px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .blog-main {
@@ -370,13 +383,70 @@ img {
   padding-left: 20px;
 }
 
+.fa-bars {
+  visibility: hidden;
+}
+
+header nav {
+  display: block;
+}
+
+.post p {
+  font-size: 1.6rem;
+}
+
+.post h2 a {
+  font-size: 2.5rem;
+}
+
+.sidebar h3 {
+  font-size: 2rem;
+}
+
+.sidebar p {
+  font-size: 1.5rem;
+}
+
+.sidebar ul li a {
+  font-size: 1.5rem;
+}
+
 /******************************************
 /* LANDING PAGE
 /*******************************************/
 
-.benefits p, .benefits ul {
-  width: 600px;
+
+.intro {
+  padding: 25px 0 200px;
+}
+
+.intro h2 {
+  font-size: 3.2rem;
+  margin: 120px 0 90px;
+}
+
+.benefits {
+  padding: 100px 0 80px;
+}
+
+h3 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
+.benefits ul {
+  margin: 30px 0 0 80px; 
+}
+
+.testimonial {
+  padding: 70px 0;
+}
+
+blockquote {
+  font-size: 2.3rem;
+}
 
 }
+
 
 
